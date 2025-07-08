@@ -18,6 +18,7 @@ all = ["raw-api", "typesize", "serde", "rayon", "arbitrary"]
 raw-api = []
 typesize = ["dep:typesize"]
 inline-more = ["hashbrown/inline-more"]
+unstable-must-not-suspend = []
 
 [dependencies]
 lock_api = "0.4.12"

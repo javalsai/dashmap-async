@@ -2,6 +2,7 @@ use crate::mapref;
 use core::hash::Hash;
 use core::ops::Deref;
 
+#[cfg_attr(feature = "unstable-must-not-suspend", must_not_suspend)]
 pub struct RefMulti<'a, K> {
     inner: mapref::multiple::RefMulti<'a, K, ()>,
 }

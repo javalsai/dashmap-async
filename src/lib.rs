@@ -1,5 +1,6 @@
 #![doc = include_str!("../README.md")]
 #![allow(clippy::type_complexity)]
+#![cfg_attr(feature = "unstable-must-not-suspend", feature(must_not_suspend))]
 
 #[cfg(feature = "arbitrary")]
 mod arbitrary;

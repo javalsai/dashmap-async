@@ -3,6 +3,7 @@ use core::hash::Hash;
 use core::ops::{Deref, DerefMut};
 use std::fmt::{Debug, Formatter};
 
+#[cfg_attr(feature = "unstable-must-not-suspend", must_not_suspend)]
 pub struct Ref<'a, K, V> {
     _guard: RwLockReadGuardDetached<'a>,
     k: &'a K,
@@ -74,6 +75,7 @@ impl<'a, K: Eq + Hash, V> Deref for Ref<'a, K, V> {
     }
 }
 
+#[cfg_attr(feature = "unstable-must-not-suspend", must_not_suspend)]
 pub struct RefMut<'a, K, V> {
     guard: RwLockWriteGuardDetached<'a>,
     k: &'a K,

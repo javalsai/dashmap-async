@@ -3,6 +3,7 @@ use core::hash::Hash;
 use core::ops::{Deref, DerefMut};
 use std::sync::Arc;
 
+#[cfg_attr(feature = "unstable-must-not-suspend", must_not_suspend)]
 pub struct RefMulti<'a, K, V> {
     _guard: Arc<RwLockReadGuardDetached<'a>>,
     k: &'a K,
@@ -39,6 +40,7 @@ impl<'a, K: Eq + Hash, V> Deref for RefMulti<'a, K, V> {
     }
 }
 
+#[cfg_attr(feature = "unstable-must-not-suspend", must_not_suspend)]
 pub struct RefMutMulti<'a, K, V> {
     _guard: Arc<RwLockWriteGuardDetached<'a>>,
     k: &'a K,
